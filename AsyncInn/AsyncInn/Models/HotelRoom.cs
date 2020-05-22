@@ -11,6 +11,8 @@ namespace AsyncInn.Models
         public long HotelId { get; set; }
         public int RoomId { get; set; }
 
+        public Hotel Hotel { get; set; }
+
         [Required]
         public int RoomNumber { get; set; }
 
