@@ -34,6 +34,8 @@ namespace AsyncInn.Data
             });
 
             
+
+            
         }
 
         public DbSet<Hotel> Hotel { get; set; }
