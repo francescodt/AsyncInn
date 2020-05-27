@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AsyncInn.Models;
 
 namespace AsyncInn.Data.Interfaces
 {
-    public class IRoomRepository
+    public interface IRoomRepository
     {
 
         Task<Room> CreateRoom(Room room);
