@@ -17,12 +17,19 @@ namespace AsyncInn.Data.Database
             _context = context;
         }
 
-        public async Task<IEnumerable<Hotel>> GetAllHotels()
+        public async Task<Hotel> CreateHotel(Hotel hotel)
+        {
+            _context.Hotel.Add(hotel);
+            await _context.SaveChangesAsync();
+            return hotel;
+        }
+
+        public async Task<IEnumerable<Hotel>> GetHotels()
         {
             return await _context.Hotel.ToListAsync();
         }
 
-        public async Task<Hotel> GetOneHotel(int id)
+        public async Task<Hotel> GetHotelById(long id)
         {
             return await _context.Hotel.FindAsync(id);
         }
@@ -34,7 +41,7 @@ namespace AsyncInn.Data.Database
             return hotel;
         }
 
-        public async Task<Hotel> DeleteHotel(int id)
+        public async Task<Hotel> DeleteHotel(long id)
         {
             var hotel = await _context.Hotel.FindAsync(id);
             if (hotel == null)
@@ -48,7 +55,7 @@ namespace AsyncInn.Data.Database
             return hotel;
         }
 
-        public async Task<bool> UpdateHotel(int id, Hotel hotel)
+        public async Task<bool> UpdateHotel(long id, Hotel hotel)
         {
             _context.Entry(hotel).State = EntityState.Modified;
 
@@ -70,7 +77,7 @@ namespace AsyncInn.Data.Database
             }
         }
 
-        public bool HotelExists(int id)
+        public bool HotelExists(long id)
         {
             return _context.Hotel.Any(e => e.ID == id);
         }
