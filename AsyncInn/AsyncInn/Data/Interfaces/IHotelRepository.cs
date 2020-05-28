@@ -10,12 +10,14 @@ namespace AsyncInn.Data.Interfaces
     {
 
         Task<Hotel> CreateHotel(Hotel hotel);
-        
+
         Task<Hotel> GetHotelById(long id);
-        Task<List<Hotel>> GetHotels();
+        
+        Task<bool> UpdateHotel(long id, Hotel hotel);
+        Task<Hotel> SaveNewHotel(Hotel hotel);
 
-        Task UpdateHotel(Hotel hotel);
+        Task<Hotel> DeleteHotel(long id);
 
-        Task DeleteHotel(int id);
+        bool HotelExists(long id);
     }
 }
